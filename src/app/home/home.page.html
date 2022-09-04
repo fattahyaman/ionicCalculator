@@ -1,20 +1,73 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Taschenrechne </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="main-div">
+    <div class="calculator">
+      <div class="header">
+        <p>{{value}}</p>
+      </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <div class="buttons">
+        <div *ngFor="let numGroup of numberGroups">
+          <ion-button
+            *ngFor="let num of numGroup"
+            (click)="onPress(num)"
+            class="cal-buttons"
+            [className]="num === 'c' ? 'gray' : num === '/' ? 'gray' :  num === '=' ? 'large' : num === 'x' ? 'purple' : num === '-' ? 'purple' : num === '+' ? 'purple': 'gray'"
+            >{{num}}</ion-button
+          >
+        </div>
+      </div>
+
+
+
+      <!-- <div class="buttons">
+        <ion-button class="gray">%</ion-button>
+        <ion-button class="gray">+/-</ion-button>
+        <ion-button class="gray" (click)="onPress('c')">C</ion-button>
+        <ion-button class="purple" (click)="onPress('/')">/</ion-button>
+      </div> -->
+
+      <!-- <div class="buttons">
+        <ion-button class="gray" (click)="onPress(7)">7</ion-button>
+        <ion-button class="gray" (click)="onPress(8)">8</ion-button>
+        <ion-button class="gray" (click)="onPress(9)">9</ion-button>
+        <ion-button class="purple" (click)="onPress('x')">X</ion-button>
+      </div>
+      <div class="buttons">
+        <ion-button class="gray" (click)="onPress(4)">4</ion-button>
+        <ion-button class="gray" (click)="onPress(5)">5</ion-button>
+        <ion-button class="gray" (click)="onPress(6)">6</ion-button>
+        <ion-button class="purple" (click)="onPress('-')">-</ion-button>
+      </div>
+      <div class="buttons">
+        <ion-button class="gray" (click)="onPress(1)">1</ion-button>
+        <ion-button class="gray" (click)="onPress(2)">2</ion-button>
+        <ion-button class="gray" (click)="onPress(3)">3</ion-button>
+        <ion-button class="purple" (click)="onPress('+')">+</ion-button>
+      </div>
+      <div class="buttons">
+        <ion-button class="gray" style="--border-radius: 0 0 0px 5px;" (click)="onPress(0)">0</ion-button>
+        <ion-button class="gray" (click)="onPress('c')">C</ion-button>
+        <ion-button class="gray" (click)="onPress('/')">/</ion-button>
+        <ion-button class="large" (click)="onPress('=')">=</ion-button>
+      </div> -->
+    </div>
   </div>
+  <!-- <div class="wrapper">
+    <ion-item> <ion-label class="result"> {{value}} </ion-label></ion-item>
+    <div *ngFor="let numGroup of numberGroups">
+      <ion-button
+        *ngFor="let num of numGroup"
+        (click)="onPress(num)"
+        class="cal-buttons"
+        [className]="num === 'c' ? 'large' : num === '=' ? 'purple' : num === 'x' ? 'purple': ''"
+        >{{num}}</ion-button
+      >
+    </div>
+  </div> -->
 </ion-content>
